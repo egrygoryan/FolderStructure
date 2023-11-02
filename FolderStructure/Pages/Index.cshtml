@@ -1,0 +1,19 @@
+﻿@page "{id:int?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Folder Structure";
+}
+
+@if (Model.Folder is not null)
+{
+    <p>Current folder - @Model.Folder.FolderName</p>
+    @foreach (var nested in Model.NestedFolders)
+    {
+        <li>
+            <a href="/Index?id=@nested.Id">@nested.FolderName</a>
+        </li>
+    }
+} else
+{
+    @Model.Message
+}

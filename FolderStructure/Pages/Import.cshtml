@@ -1,0 +1,16 @@
+﻿@page
+@model ImportModel
+@{
+    ViewData["Title"] = "Import File";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="ImportedFile" accept=".txt" />
+    <input type="submit" value="Import"/>
+</form>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p>
+        @Model.Message
+    </p>
+}
